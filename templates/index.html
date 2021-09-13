@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ <body style="background-color:black;">
+<style>
+body {
+    margin:  0;
+    padding:  0;
+    font-family:  arial;
+    background-color:white;
+}
+
+.loader {
+    position:  absolute;
+    left:  50%;
+    top:  13%;
+    transform:  translate(-50%, -50%);
+}
+
+.loader h1 {
+    background-image: url({{url_for('static',filename = 'ter.jpg')}});
+    margin:  0;
+    color:  rgba(100, 100, 200, 0.2);
+    font-size: 70px;
+    padding: 61px;
+    animation: animate 1s linear infinite;
+    background-repeat-y:  no-repeat;
+    background-repeat-x:  repeat;
+    -webkit-background-clip: text;
+}
+
+@keyframes animate{
+    0%{
+        background-position: left 0 top -30px;
+    }
+    20%{
+        background-position: left 800px top -20px;
+    }
+    40%{
+        background-position: left 1800px top -10px;
+    }
+    60%{
+        background-position: left 24000px top 0px;
+    }
+    80%{
+        background-position: left 3400px top -10px;
+    }
+    100%{
+        background-position: left 4400px top -20px;
+    }
+}
+
+
+</style>
+
+
+
+
+<div class="container">
+	<div class="row">
+        <div class="loader">
+            <h1> Good Health</h1>
+        </div>
+    </div>
+</div>
+
+
+
+<h1 class="d-flex align-items-center justify-content-center" style="margin-top: 100px; color:white;">
+
+</h1>
+<h6 class="d-flex align-items-center justify-content-center" style= "color:white;">
+ For Your Wealth
+</h6>
+
+
+<h2 class="d-flex align-items-center justify-content-center" style="margin-top: 30px;">
+ 
+</h2>
+<center>
+<image src="{{url_for('static',filename = 'ter.jpg')}}" >
+</center>
+</body>
+
+
+
+
+
+
+
+
+
+{% endblock %}
