@@ -72,7 +72,6 @@ def greedyAlgo1(budget,tNutrition,inputLis,repItem,mPCat):
 
 
 
-
 def getRecList(data,currentBudget,budget,inputLis,recList,noMoney,repItem,curData,tNutrition,mPCat):
 
     recDict = {'Protein':[], 'Fruits':[], 'Vegetable':[], 'Grains':[],'Dairy':[]} #just to check items 
