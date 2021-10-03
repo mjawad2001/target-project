@@ -9,7 +9,7 @@ from flask import Blueprint, render_template
 
 def greedyAlgo(budget,tNutrition,inputLis,repItem):
     
-    file =   file = open(os.path.join("./project/database.json"), "r")
+    file =   file = open(os.path.join("./target-project/database.json"), "r")
      
     data = json.load(file)
 

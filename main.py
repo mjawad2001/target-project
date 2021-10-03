@@ -18,7 +18,7 @@ from collections import OrderedDict
 #------
 import sys
 #sys.path.append('/Users/mdjawad/Desktop/research/project/main.py')
-sys.path.insert(1, './project')
+sys.path.insert(1, './target-project')
 import greedyAlgo
 #------
 #import sys

@@ -4,7 +4,6 @@
 
 
 
-
 <body style="background-color:black;">
 <center>
 <h1  style="color:white;" class="title">
@@ -59,6 +58,19 @@
       </div>
     </div>
   {% endfor %}
+
+  <div class="colum">
+      <div class="card" style="height:150px;">
+        
+        <a href=addmore ><img src="{{url_for('static',filename = 'add.png')}}"alt="Avatar" style="width:110px; height:100px;margin-left:15px;margin-top:20px;" id="firstname"> </a>
+      
+           <h4><b>Add People </b></h4> 
+          
+    
+      </div>
+    </div>
+
+  
 </div>
 
 
@@ -132,9 +144,7 @@
 </div>
 </div>
   </form>
-  <center>
-<a href=addmore ><button  type="submit1" class="btn bg-dark" style="color:white; margin-top:50px;">Add More People </button></a>
-</center>
+  
 </body>
 
 {% endblock %}

@@ -7,7 +7,7 @@ import os
 
 def greedyAlgo1(budget,tNutrition,inputLis,repItem,mPCat):
     
-    file =   file = open(os.path.join("./project/FinalTdataBase.json"), "r")
+    file =   file = open(os.path.join("./target-project/FinalTdataBase.json"), "r")
     data = json.load(file)
     tempt = []
  
