@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> About </title>
+
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" >
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}" >
+</head>
+
+
+
+
+
+
+<button class="btn btn-outline-secondary btn-block" style="color:black;" id="myBtn" style="margin-bottom: 200px;" >Result</button>
+
+<!-- The Modal -->
+
+<div id="myModal" style='display:none'>
+    <div id="popup">   
+            <div style="border: 10px solid black;margin-bottom:20px;box-shadow: 0 4px 8px 0 rgba(255,0,0,0.9);" class="modal-content">
+    <span class="close">&times;</span>
+    <center>
+    
+    <h4 style="color:Black;">The budget is not  enough for your nutritional need</h4>
+  <h4 style="color:Black;">Money Spent ${{mUsed}}</h4>
+  </center>
+  </div>
+      
+    </div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.on = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function PopUp(hideOrshow) {
+    if (hideOrshow == 'hide') document.getElementById('myModal').style.display = "none";
+    else document.getElementById('myModal').removeAttribute('style');
+}
+
+window.onload = function () {
+    setTimeout(function () {
+        PopUp('show');
+    }, 500);
+}
+</script>
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+
+
+<table style="margin-left:800px;margin-top:10px;"> 
+  <tr>
+    <th style="color:black;">Shopping List Total</th>
+ 
+  </tr>
+  <tr>
+    <td style="color:black;">${{ mUsed[1]}}</td>
+
+  </tr>
+</table>
+
+<div class="class1" >
+   <span class="span1">
+<h2 style="color:black;"> Shopping List</h2>
+{%for items in recomended[0]:%}
+
+<div class="column" style="margin-top:10px;"> 
+
+<div class="flip-card" style="padding-right:40px;height:400px;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <image src="{{url_for('static',filename = items[1][6] + '.png')}}"  style="width:100%;">
+       <p style="color:white;"><b>{{((items[0][0:40]))}}...</b></p> 
+       <p style="color:white;"><b>${{((items[1][0]))}}</b></p>
+      
+    </div>
+    <div class="flip-card-back">
+      <a href="{{((items[1][5]))}}"><p><b>{{((items[0]))}}</b></p> </a>
+    <p><a href="#" class="gfg">${{((items[1][0]))}}</a></p>
+  
+
+    </div>
+  </div>
+</div>
+ </div>
+
+{% endfor %} 
+
+
+</span>
+</span>
+
+
+
+
+
+
+
+<body style="background-color:white;">
+<center>
+<label for="css" style="color:black;" > {{b}}</label><br>
+
+
+
+
+
+</center>
+<div>
+<p></p>
+<div class="container">
+  <h2 style='color:black;'>Nutrition</h2>
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" style="background-color:Black;">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo" style='color:white;'> 
+        Nutrition Details  ↓
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <table class="table table-striped" style:"margin-bottom: 30px;">
+  <thead>
+    <tr>
+      <th scope="col" style="background-color:white;">Categories</th>
+      <th scope="col"style="background-color:white;">Collected</th>
+      <th scope="col"style="background-color:white;">Needed</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, value in stimate.items()%}
+      {% if value != 0 %}
+        <tr>
+          <tr>
+            <td style="background-color:white;" >{{key}}</td>
+            <td style="background-color:white;">{{value}}</td>
+            <td style="background-color:white;">{{nutCal[key]}}</td>
+            </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+        $flag = -1;
+  
+        $("a.gfg").hover(
+            function () {
+                $("div.popup").attr("style", "display:block");
+            },
+            function () {
+                if ($flag == -1) {
+                    $("div.popup").attr("style", "display:none");
+                }
+            }
+        );
+  
+        $("a.gfg").click(function () {
+            $flag = 1;
+        });
+    </script>
+</html>
+</body>
+
+
+{% endblock %}
